@@ -17,9 +17,9 @@ export const ContainerFilter = styled.div`
     height: 4rem;
     background: #ffff;
 
-    box-shadow: -2px 6px 30px -24px rgba(0,0,0,1);
-    -webkit-box-shadow: -2px 6px 30px -24px rgba(0,0,0,1);
-    -moz-box-shadow: -2px 6px 30px -24px rgba(0,0,0,1);
+    box-shadow: -2px 6px 30px -24px rgba(0,0,0,.8);
+    -webkit-box-shadow: -2px 6px 30px -24px rgba(0,0,0,.8);
+    -moz-box-shadow: -2px 6px 30px -24px rgba(0,0,0,.8);
 
     > div {
         display: flex;

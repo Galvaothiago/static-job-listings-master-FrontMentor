@@ -19,7 +19,7 @@ export const Dashboard = styled.div`
   justify-content: flex-start;
 
   overflow-y: auto;
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
 
 
   /* justify-content: center; */
