@@ -1,6 +1,6 @@
 import { CardContainer, ContainerFeatured, ContainerLeft, ContainerNew, ContainerRight } from "./styles";
 
-export function Card({ data, onCreate, onUpdate }) {
+export function Card({ data, onCreate}) {
     const { languages, tools } = data
     const languagesAndTools = [...languages, ...tools]
 
@@ -27,7 +27,7 @@ export function Card({ data, onCreate, onUpdate }) {
             </ContainerLeft>
 
             <ContainerRight>
-                { languagesAndTools.map( item => <p onClick={ () => onCreate(item) }>{item}</p> ) }
+                { languagesAndTools.map( (item, index) => <p key={`${index}-${item}`} onClick={ () => onCreate(item) }>{item}</p> ) }
             </ContainerRight>
         </CardContainer>
     )
