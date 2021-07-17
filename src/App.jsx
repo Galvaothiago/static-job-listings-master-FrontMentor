@@ -12,9 +12,8 @@ export default function App() {
 
   useEffect(() => {
     filterJobsThroughTagsfilter()
-    console.log('executou')
 
-  },[ tagFilter, setJobs])
+  },[ tagFilter ])
 
   const filterJobsThroughTagsfilter = () => {
     
