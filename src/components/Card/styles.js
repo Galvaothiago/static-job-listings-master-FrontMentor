@@ -1,22 +1,42 @@
 import styled from 'styled-components'
 
+const styleBorder = '5px solid var(--DesaturatedDarkCyan)'
+
 export const CardContainer = styled.div`
     max-width: 73rem;
     width: 100%;
-    height: 10rem;
+    /* height: 10rem; */
     padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     
     border-radius: 5px;
-    border-left: 5px solid var(--DesaturatedDarkCyan);
+    border-left: ${props => props.$border ? styleBorder : ''};
 
     background-color: #ffff;
  
     box-shadow: -2px 6px 30px -24px rgba(0,0,0,8);
     -webkit-box-shadow: -2px 6px 30px -24px rgba(0,0,0,8);
     -moz-box-shadow: -2px 6px 30px -24px rgba(0,0,0,8);
+
+    & + div {
+        margin-top: 1.5rem;
+    }
+
+    @media(max-width: 785px) {
+        min-height: 24rem;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        & + div {
+            margin-top: 4.5rem;
+        }
+      
+    }
 
 `
 export const ContainerNew = styled.span`
@@ -69,6 +89,13 @@ export const ContainerLeft = styled.div`
             font-weight: 700;
             font-size: 1.2rem;
             color: var(--VeryDarkGrayishCyan);
+
+            transition: color .2s;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--DesaturatedDarkCyan);
+            }
         }
 
         > span {
@@ -85,7 +112,25 @@ export const ContainerLeft = styled.div`
                 }
             }
         }
+
     }
+
+    @media(max-width: 785px) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--DarkGrayishCyan);
+
+        transform: translateY(-40%);
+
+        img {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
 `
 
 export const ContainerRight = styled.div`
@@ -115,5 +160,20 @@ export const ContainerRight = styled.div`
 
     }
 
+    @media(max-width: 785px) {
+        width: 90%;
+        /* padding: 5rem; */
+
+        transform: translateY(-50%);
+        flex-wrap: wrap;
+        height: 9rem;
+        /* background-color: red; */
+
+        p {
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+
+        }
+    }
 
 `

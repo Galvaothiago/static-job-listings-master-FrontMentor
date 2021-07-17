@@ -1,30 +1,33 @@
 import { CardContainer, ContainerFeatured, ContainerLeft, ContainerNew, ContainerRight } from "./styles";
 
-export function Card() {
+export function Card({ data, onCreate, onUpdate }) {
+    const { languages, tools } = data
+    const languagesAndTools = [...languages, ...tools]
+
+
     return (
-        <CardContainer>
+        <CardContainer $border={data.featured}>
             <ContainerLeft>
-                <img src="/images/photosnap.svg" alt="Profile" />
+                <img src={data.logo} alt={`${data.company} Logo`} />
                 <div>
                     <div>
-                        <p>Photosnap</p>
+                        <p>{data.company}</p>
                         <div>
-                            <ContainerNew>New!</ContainerNew>
-                            <ContainerFeatured>Featured</ContainerFeatured>
+                            { data.new && <ContainerNew>New!</ContainerNew>}
+                            { data.featured && <ContainerFeatured>Featured</ContainerFeatured>}
                         </div>
                     </div>
-                    <h1>Senior Frontend Developer</h1>
+                    <h1>{ data.position }</h1>
                     <span>
-                        <li>1d ago</li>
-                        <li>Full Time</li>
-                        <li>USA only</li>
+                        <li>{ data.postedAt }</li>
+                        <li>{ data.contract }</li>
+                        <li>{ data.location }</li>
                     </span>
                 </div>
             </ContainerLeft>
 
             <ContainerRight>
-                <p>JavaScript</p>
-                <p>CSS</p>
+                { languagesAndTools.map( item => <p onClick={ () => onCreate(item) }>{item}</p> ) }
             </ContainerRight>
         </CardContainer>
     )

@@ -1,16 +1,13 @@
 import { ItemFilter } from "../ItemFilter";
 import { ContainerFilter } from "./styles";
 
-export function Filter() {
+export function Filter({ tags, onRemove, onClean }) {
     return (
         <ContainerFilter>
             <div>
-                <ItemFilter textContent="Frontend"/>
-                <ItemFilter textContent="Sass"/>
-                <ItemFilter textContent="NodeJs"/>
-                <ItemFilter textContent="CSS" />
+                { tags.map( tag => <ItemFilter onRemove={onRemove} textContent={tag}/> ) }
             </div>
-            <button>Clear</button>
+            <button onClick={onClean}>Clear</button>
         </ContainerFilter>
     )
 }
