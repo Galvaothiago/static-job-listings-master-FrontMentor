@@ -21,7 +21,6 @@ export default function App() {
     let countTagsMatch = 0
     const allLanguages = [...job.languages, ...job.tools]
 
-
     for( var i = 0; i < tagFilter.length; i++) {
       allLanguages.forEach( language => {
         if(String(language) === String(tagFilter[i])) {
@@ -40,9 +39,13 @@ export default function App() {
   }
 
   const createItemIntoFilter = (text) => {
-    setFilter(true)
-    setTagFilter( oldItem => [...oldItem, text])
+    const verifyIfAlreadyClicked = currentTag => currentTag !== text
+    const wasAlreadyClicked = tagFilter.every(verifyIfAlreadyClicked)
 
+    if(wasAlreadyClicked) {
+      setFilter(true)
+      setTagFilter( oldItem => [...oldItem, text])
+    }
   }
 
   const removeItemIntoFilter = (text) => {
