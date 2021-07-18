@@ -18,11 +18,11 @@ export function Card({ data, onCreate}) {
                         </div>
                     </div>
                     <h1>{ data.position }</h1>
-                    <span>
+                    <ul>
                         <li>{ data.postedAt }</li>
                         <li>{ data.contract }</li>
                         <li>{ data.location }</li>
-                    </span>
+                    </ul>
                 </div>
             </ContainerLeft>
 

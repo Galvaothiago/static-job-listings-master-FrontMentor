@@ -98,7 +98,7 @@ export const ContainerLeft = styled.div`
             }
         }
 
-        > span {
+        > ul {
             display: flex;
             color: var(--DarkGrayishCyan);
 
